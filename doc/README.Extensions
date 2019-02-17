@@ -1,0 +1,53 @@
+Extensions in LetoDMS
+=====================
+
+Since verson 5.0.0 LetoDMS can be extended by extensions. Extensions
+can hook up functions into certain operations, e.g.
+uploading, removing or displaying a document. They can also be
+used to modify some of the internal variables like the list of
+translations and they can even replace classes in the core of
+LetoDMS and hook up functions into certain operations in the core.
+
+All extensions are located in the folder 'ext'. Each extension
+has its own folder named by the name of the extension. The central
+configuration of an extension is stored in conf.php.
+The configuration sets the file and classname which is loaded
+during initialization of the extension. The class has to have
+a method init() which is called with any page request. The
+configuration itself is cached and must be updated within
+the extension manager if it was changed.
+
+The integration into LetoDMS is done by hooks, class and file
+overloading. LetoDMS manages
+a globally available array of hooks ($GLOBALS['LetoDMS_HOOKS']).
+This array has the elements 'view' and 'controller'. All entries
+in those array elements contain instances of self defined classes
+containing the hook methods. For setting up the hooks in the view
+'viewFolder' the following code is needed.
+
+$GLOBALS['LetoDMS_HOOKS']['view']['viewFolder'][] = new LetoDMS_ExtExample_ViewFolder;
+
+class LetoDMS_ExtExample_ViewFolder {
+  ...
+};
+
+The same approach is implemented for hooks called from the controller
+logic (the op/op.*.php files).
+
+$GLOBALS['LetoDMS_HOOKS']['controller']['removeFolder'][] = new LetoDMS_ExtExample_RemoveFolder;
+
+class LetoDMS_ExtExample_RemoveFolder {
+  ...
+};
+
+Based on these two variants of adding hooks to the LetoDMS application code,
+the LetoDMS core can be extended by implementing the controller hook 'initDMS'
+which is called right after the class LetoDMS_Core_DMS has been initiated.
+
+Beside hooks and callbacks another way of modifying LetoDMS is given
+by overloading the files in the directory 'views' and 'controllers'. Both
+directories contain class files with a single class for either running
+controller or view code. If an extension provides those file in its
+own extension dir, they will be used instead of the files shipped with
+LetoDMS.
+

@@ -1,0 +1,42 @@
+Help translating LetoDMS
+===========================
+
+LetoDMS has got many translations over the years and it is a major
+task to keep them all updated. If you would like to give a helping
+hand, then this will be much appreciated. There are various ways
+to contribute translations.
+
+1. The demo version of LetoDMS at https://demo.LetoDMS.org will list
+all missing translations in a formular on the bottom of the page
+while using the software. You can easily provide a missing translation
+by filling out the form and submitting it. The translation will not
+instantly be used, but is taken over into the official version of
+LetoDMS once in a while. This method does not allow to submit corrected
+translations of existing phrases.
+
+2. Fixing translations is only possible by modifying one of the language
+files in `lanuages/xx_XX/lang.inc`. These files are php files containing
+one large array named `$text`. Any modification will be visible right away
+in your LetoDMS installation. If you intend to pass your modifications to
+the developers of LetoDMS, than keep your changes seperate from the
+original translation. A good way is to put your changes into a new
+file, e.g. `lang-local.inc` containing an array named `$text_local` and
+merge that array with the original translation array. Just put at the
+end of `lanuages/xx_XX/lang.inc` the follwing code:
+
+  include('lang-local.inc');
+	array_merge($text, $text_local);
+
+Also create the file `lang-local.inc` with the content
+
+  <?php
+	$text_local = array(
+		'xxx' => 'yyy',
+	);
+	?>
+
+Once you are ready with your local modifications and you think those are
+good enough for the public version of LetoDMS, then please mail them to
+info@LetoDMS.org
+
+

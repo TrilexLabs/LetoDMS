@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.8.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>LetoDMS_Lucene</name>
+ <channel>pear.php.net</channel>
+ <summary>Fulltext search for LetoDMS</summary>
+ <description>LetoDMS is a web based document management system (DMS). This is
+ the fulltext search engine for it, based on Lucene.</description>
+ <lead>
+  <name>Uwe Steinmann</name>
+  <user>steinm</user>
+  <email>uwe@steinmann.cx</email>
+  <active>yes</active>
+ </lead>
+ <date>2018-04-11</date>
+ <time>10:58:13</time>
+ <version>
+  <release>1.1.13</release>
+  <api>1.1.13</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+ <notes>
+IndexedDocument() remembers cmd and mimetype
+ </notes>
+ <contents>
+  <dir baseinstalldir="LetoDMS" name="/">
+   <dir name="Lucene">
+    <file name="Indexer.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="Search.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="IndexedDocument.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /Lucene -->
+   <dir name="tests">
+   </dir> <!-- /tests -->
+   <file name="Lucene.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.5.4</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.0.1</release>
+    <api>0.0.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-04-27</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>
+   </notes>
+  </release>
+  <release>
+   <date>2011-11-06</date>
+   <time>08:05:38</time>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- New Release
+   </notes>
+  </release>
+  <release>
+   <date>2012-11-06</date>
+   <time>08:05:38</time>
+   <version>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+use a configurable list of mime type converters, fixed indexing and searching
+of special chars like german umlaute.
+   </notes>
+  </release>
+  <release>
+   <date>2012-12-03</date>
+   <time>10:31:23</time>
+   <version>
+    <release>1.1.1</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+catch exception if index is opened but not available
+   </notes>
+  </release>
+  <release>
+   <date>2013-06-17</date>
+   <time>10:31:23</time>
+   <version>
+    <release>1.1.2</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+parse query term and catch errors before using it
+   </notes>
+  </release>
+  <release>
+   <date>2013-06-27</date>
+   <time>15:12:50</time>
+   <version>
+    <release>1.1.3</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+explicitly set encoding to utf-8 when adding fields
+do not check if deleting document from index fails, update it in any case
+   </notes>
+  </release>
+  <release>
+   <date>2013-08-13</date>
+   <time>21:56:55</time>
+   <version>
+    <release>1.1.4</release>
+    <api>1.1.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+class LetoDMS_Lucene_Search::search returns false if query is invalid instead of an empty result record
+   </notes>
+  </release>
+  <release>
+   <date>2014-07-30</date>
+   <time>09:00:34</time>
+   <version>
+    <release>1.1.5</release>
+    <api>1.1.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+field for original filename is treated as utf-8
+declare SeeDMS_Lucene_Indexer::open() static
+   </notes>
+  </release>
+  <release>
+   <date>2015-08-05</date>
+   <time>21:13:13</time>
+   <version>
+    <release>1.1.6</release>
+    <api>1.1.6</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+run external commands with a timeout
+   </notes>
+  </release>
+  <release>
+   <date>2016-02-01</date>
+   <time>09:14:07</time>
+   <version>
+    <release>1.1.7</release>
+    <api>1.1.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add command for indexing postѕcript files
+   </notes>
+  </release>
+  <release>
+   <date>2016-03-29</date>
+   <time>08:11:19</time>
+   <version>
+    <release>1.1.8</release>
+    <api>1.1.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+set last parameter of stream_select() to 200000 micro sec. in case the timeout in sec. is set to 0
+   </notes>
+  </release>
+  <release>
+   <date>2016-04-28</date>
+   <time>08:11:19</time>
+   <version>
+    <release>1.1.9</release>
+    <api>1.1.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+pass variables to stream_select() to fullfill strict standards.
+make all functions in Indexer.php static
+   </notes>
+  </release>
+  <release>
+   <date>2017-03-01</date>
+   <time>15:55:32</time>
+   <version>
+    <release>1.1.10</release>
+    <api>1.1.10</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+catch exception in execWithTimeout()
+   </notes>
+  </release>
+  <release>
+   <date>2017-12-04</date>
+   <time>10:58:13</time>
+   <version>
+    <release>1.1.11</release>
+    <api>1.1.11</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+allow conversion commands for mimetypes with wildcards
+   </notes>
+  </release>
+  <release>
+   <date>2018-01-30</date>
+   <time>10:58:13</time>
+   <version>
+    <release>1.1.12</release>
+    <api>1.1.12</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+execWithTimeout() reads data from stderr and saves it into error msg
+   </notes>
+  </release>
+ </changelog>
+</package>

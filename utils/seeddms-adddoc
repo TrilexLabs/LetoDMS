@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ -z "${LetoDMS_HOME}" ]; then
+	echo 'Please set $LetoDMS_HOME before running this script'
+	exit 1
+fi
+
+exec php -f "${LetoDMS_HOME}/utils/adddoc.php" -- "${@}"

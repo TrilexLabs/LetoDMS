@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.8.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>LetoDMS_Preview</name>
+ <channel>pear.php.net</channel>
+ <summary>Create thumbnails from document content for LetoDMS</summary>
+ <description>LetoDMS is a web based document management system (DMS). These
+ are the classes to create preview images from the document content.</description>
+ <lead>
+  <name>Uwe Steinmann</name>
+  <user>steinm</user>
+  <email>uwe@steinmann.cx</email>
+  <active>yes</active>
+ </lead>
+ <date>2018-03-08</date>
+ <time>10:59:39</time>
+ <version>
+  <release>1.2.8</release>
+  <api>1.2.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+ <notes>
+preview is also created if LetoDMS_Core_DocumentContent has a child class
+ </notes>
+ <contents>
+  <dir baseinstalldir="LetoDMS" name="/">
+   <dir name="Preview">
+    <file name="Base.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="Previewer.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="PdfPreviewer.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /Lucene -->
+   <dir name="tests">
+   </dir> <!-- /tests -->
+   <file name="Preview.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.5.4</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <date>2012-11-20</date>
+   <time>08:05:38</time>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+ initial version
+   </notes>
+  </release>
+  <release>
+   <date>2013-04-29</date>
+   <time>19:34:07</time>
+   <version>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+preview image can also be created from a document file (LetoDMS_Core_DocumentFile)
+   </notes>
+  </release>
+  <release>
+   <date>2014-03-18</date>
+   <time>16:34:59</time>
+   <version>
+    <release>1.1.1</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add converters for .tar.gz, .ps, .txt
+   </notes>
+  </release>
+  <release>
+   <date>2014-04-10</date>
+   <time>20:29:39</time>
+   <version>
+    <release>1.1.2</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+create fixed width image with proportional height
+   </notes>
+  </release>
+  <release>
+   <date>2015-02-13</date>
+   <time>20:29:39</time>
+   <version>
+    <release>1.1.3</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+preview images will also be recreated if the object this image belongs is of newer date than the image itself. This happens if versions are being deleted and than a new version is uploaded. Because the new version will get the version number of the old version, it will also take over the old preview image.Comparing the creation date of the image with the object detects this case.
+   </notes>
+  </release>
+  <release>
+   <date>2015-08-08</date>
+   <time>09:36:57</time>
+   <version>
+    <release>1.1.4</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+command for creating the preview will be called with a given timeout
+   </notes>
+  </release>
+  <release>
+   <date>2016-02-11</date>
+   <time>09:36:57</time>
+   <version>
+    <release>1.1.5</release>
+    <api>1.1.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add method getFilesize()
+timeout for external commands can be passed to contructor of LetoDMS_Preview_Previewer
+   </notes>
+  </release>
+  <release>
+   <date>2016-03-08</date>
+   <time>09:36:57</time>
+   <version>
+    <release>1.1.6</release>
+    <api>1.1.6</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+check if object passed to createPreview(), hasPreview() is not null
+   </notes>
+  </release>
+  <release>
+   <date>2016-03-29</date>
+   <time>08:07:14</time>
+   <version>
+    <release>1.1.7</release>
+    <api>1.1.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+set last parameter of stream_select() to 200000 micro sec. in case the timeout in sec. is set to 0
+   </notes>
+  </release>
+  <release>
+   <date>2016-04-05</date>
+   <time>15:17:11</time>
+   <version>
+    <release>1.1.8</release>
+    <api>1.1.8</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+pass variables to stream_select (required by php7)
+   </notes>
+  </release>
+  <release>
+   <date>2016-04-26</date>
+   <time>15:17:11</time>
+   <version>
+    <release>1.1.9</release>
+    <api>1.1.9</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add more documentation
+finish deletePreview()
+add new method deleteDocumentPreviews()
+fix calculation of timeout (Bug #269)
+check if cache dir exists before deleting it in deleteDocumentPreviews()
+   </notes>
+  </release>
+  <release>
+   <date>2016-11-07</date>
+   <time>15:17:11</time>
+   <version>
+    <release>1.2.0</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add new previewer which converts document to pdf instead of png
+   </notes>
+  </release>
+  <release>
+   <date>2016-11-15</date>
+   <time>21:00:26</time>
+   <version>
+    <release>1.2.1</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+setConverters() overrides exiting converters
+   </notes>
+  </release>
+  <release>
+   <date>2017-03-02</date>
+   <time>07:14:59</time>
+   <version>
+    <release>1.2.2</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+commands can be set for mimetypes 'xxxx/*' and '*'
+pass mimetype as parameter '%m' to converter
+   </notes>
+  </release>
+  <release>
+   <date>2017-09-18</date>
+   <time>07:14:32</time>
+   <version>
+    <release>1.2.3</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+createPreview() returns false if running the converter command fails
+   </notes>
+  </release>
+  <release>
+   <date>2017-10-11</date>
+   <time>07:14:32</time>
+   <version>
+    <release>1.2.4</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+fix typo in converter for tar.gz files
+   </notes>
+  </release>
+  <release>
+   <date>2017-10-11</date>
+   <time>07:14:32</time>
+   <version>
+    <release>1.2.5</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+LetoDMS_Preview_Base::hasConverter() returns only try if command is set
+   </notes>
+  </release>
+  <release>
+   <date>2017-12-04</date>
+   <time>10:59:39</time>
+   <version>
+    <release>1.2.6</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+LetoDMS_Preview_Base::setConverters() overrides existing converters.
+New method LetoDMS_Preview_Base::addConverters() merges new converters with old ones.
+   </notes>
+  </release>
+  <release>
+   <date>2018-01-18</date>
+   <time>10:59:39</time>
+   <version>
+    <release>1.2.7</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add LetoDMS_Preview_Base::sendFile() as a replacement for readfile() which uses
+mod_xsendfile if available
+execWithTimeout() reads data from stderr and returns it together with stdout in array
+   </notes>
+  </release>
+ </changelog>
+</package>

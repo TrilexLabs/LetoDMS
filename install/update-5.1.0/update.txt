@@ -1,0 +1,15 @@
+Caution when you update an sqlite database
+==========================================
+
+The database changes for this version will require to change the
+definition of various columns. This is not easily possible when using
+sqlite. Therefore, the affected tables are first renamed, than
+new tables with the modified columns are created and the old table
+contents will be copied into the new tables. The old tables will
+be removed afterwards.
+
+Because sqlite does not support transactions on alter, create and drop
+table these changes cannot not be undone in case of an error. Backup
+your database before and consider to do the update manually by running
+
+cat install/update-5.1.0/update-sqlite.sql | sqlite data/content.db

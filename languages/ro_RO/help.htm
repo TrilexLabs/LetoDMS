@@ -1,0 +1,182 @@
+<h1>Note generale</h1>
+
+<p>
+
+Un DMS (Document Management System) este proiectat pentru a face managementul documentelor,
+controlul fluxului de lucru (workflow), permisiunile de acces și organizarea, în general.
+</p>
+
+<p>
+Utilizand primul nivel al meniului principal, utilizatorul poate accesa diverse informații stocate în sistem:
+<ul>
+<li>Conținut: vă permite să navigați prin documente într-un stil manager de fișiere.
+<li>Documente mele: are mai multe intrări de acces la documente de interes:
+<ul>
+<li>Documente in procesare: listea de documente ce așteaptă revizuire sau aprobarea de către utilizator,
+documentele deținute de utilizator care așteaptă aprobare sau revizuire, documentele blocat de către utilizator.
+<li>Toate documentele: listă cu toate documentele deținute de către utilizator.
+<li>Sumar revizuire: lista cu toate documentele care au fost revizuite sau așteaptă revizuire de către utilizator.
+<li>Sumar aprobare: lista cu toate documentele care au fost aprobate sau așteaptă aprobăre de către utilizator.
+</ul>
+</ul>
+</p>
+
+<p>
+Acest DMS ofera de asemenea un calendar, care servește ca o agenda virtuala pentru a partaja note,
+numiri, întâlniri, deadlines și angajamente.
+</p>
+
+<br/><br/>
+<h1>Permisiuni</h1>
+
+<p>
+Utilizatorii autorizați pot seta dacă și cum, alți utilizatori vor putea accesa diferitele directoare
+și documente încărcate.
+</p>
+
+<h2>Nivele de permisiune</h2>
+<p>
+Posibilele nivele de acces sunt:
+<ul>
+<li>Total permis: utilizatorul poate efectua orice operație.
+<li>Citire și scriere: utilizatorul poate actualiza înregistrările existente și poate adauga continut in foldere.
+<li>Numai citire: utilizatorul poate vizualiza conținutul fisierelor și descărca documentele.
+<li>Fara access: utilizatorul nu poate vizualiza conținutul folderelor sau a documentelor individuale.
+</ul>
+</p>
+
+<p>
+Implicit, administratorii detin toate permisiunile de acces pe fiecare document și folder din sistem. 
+În mod similar, proprietarul unui document detine toate permisiunile pe documentele sale.
+</p>
+
+<p>
+Doar utilizatorii administrator pot schimba proprietarul unui document.
+</p>
+
+<h2>Management permisiuni</h2>
+<p>
+Pentru fiecare folder sau document, permisiunile sunt gestionate prin intermediul a două dispozitive diferite
+<ul>
+<li>Permisiunile implicite sunt valabile în absența unor specificatii suplimentare
+<li>Lista de permisiuni vă permite să specificați excepții de la permisiunile implicite
+</ul>
+</p>
+
+<h2>Moștenire acces</h2>
+<p>
+Permisiunile folderelor și documentelor pot fi setate ca ereditare.
+În acest caz, fișierele și folderele moștenesc aceleași permisiuni ca folderul care le conține.
+</p>
+
+<br/><br/>
+<h1>Flux de lucru Documente (workflow)</h1>
+
+<p>
+Sistemul se ocupă în mod automat de fluxul de lucru (workflow) pentru fiecare document și retine 
+modificările, versiunile, comentariile facute, etc.
+</p>
+
+<h2>Ciclu de validare</h2>
+<p>
+Fluxul de lucru normal necesită, atunci când încărcați un nou document sau o noua versiune, 
+sa indicati unii utilizatori sau grupuri de utilizatori ca revizuitori(reviwers) și/sau aprobatori.
+Utilizatorii care sunt listati ca revizuitori(reviwers) și aprobatori 
+trebuie să-și exprime aprobarea documentului. Când această operație
+este finalizată, și astfel toți utilizatorii și-au exprimat revizuirea/aprobarea, 
+starea documentului va deveni "final(released)".
+</p>
+
+<p>
+Revizuitorul(reviwer)/aprobatorul poate refuza aprobarea documentului.
+În acest caz, statusul documentului este setat pe "respins(rejected)".
+</p>
+
+<p>
+Un document care nu are setat revizuitori(reviwers) și/sau aprobatori trece imediat în starea de "final(released)".
+</p>
+
+<p>
+Dacă se indică ca și revizuitori(reviwers) și/sau aprobatori un grup de utilizatori, în acest caz
+revizuirea/aprobarea trebui să fie făcută de oricare dintre utilizatorii care aparțin grupului.
+</p>
+
+<p>
+Proprietarul unui document poate în orice moment să modifice lista de revizuitori(reviwers)/aprobatori.
+</p>
+
+<h2>Status documente</h2>
+<p>
+Statusurile posibile pentru documente sunt:
+<ul>
+<li>Proiect în așteptarea aprobarii: unul sau mai multi dintre aprobatorii menționati nu si-au exprimat opinia lor.
+<li>Proiect in asteptarea revizuirii: unul sau mai multi dintre revizuitorii menționati nu si-au exprimat opinia lor.
+<li>Final(released): documentul a finalizat cu succes ciclul său de validare.
+<li>Respins(rejected): documentul a întrerupt ciclul său de validare.
+<li>Expirat: ați depășit data țintă pentru finalizarea validării documentului.
+<li>Invechit: statutul unui document final(released) poate fi schimbat în învechit. Aceasta
+se dorește a fi o alternativă la anularea documentului. Starea de învechit este reversibilă.
+</ul>
+</p>
+
+<h2>Expirarea</h2>
+<p>
+Pentru fiecare document în producție poate fi setat o dată scadentă.
+Odată trecut de această zi nu mai sunt posibile revizuiri sau aprobări
+și documentul merge în starea "expirat".
+</p>
+
+<p>
+Termenul este considerat doar pentru cea mai recentă versiune a documentului
+și are efect doar asupra procesarii documentelor.
+</p>
+
+
+<br/><br/>
+<h1>Alte caracteristici</h1>
+
+<h2>Funcția de blocare</h2>
+<p>
+Funcția de blocare este creata pentru a indica celorlalți participanți faptul că un anumit document
+este în procesare. Utilizatorii care au permisiuni totale pe documentul respectiv pot totusi inversa blocare 
+și pot trece la modificarea documentului.
+</p>
+
+<h2>Notificări</h2>
+<p>
+Fiecare utilizator poate solicita o notificare pe documente și foldere.
+Adăugarea unui document sau folder in lista ta de notificări va putea primi
+raportarea tranzacțiilor de către alți utilizatori.
+</p>
+
+<p>
+Numai Managerul unui grup poate decide dacă notificarile cu privire la un document sau folder sa intre în lista de grupuri. 
+Odata introduse, notificările apar la toți membrii grupului.
+</p>
+
+<h2>Cuvinte cheie și căutare</h2>
+<p>
+Fiecare document permite includerea unei descrieri și a câtorva cuvinte cheie.
+Aceste informatii sunt utilizate pentru funcția de cautare.
+</p>
+<p>
+În meniul Cont personal fiecare utilizator poate stoca un set de cuvinte cheie grupate pe categorii,
+în scopul de a le reutiliza în timpul încărcării de documente.
+</p>
+
+<p>
+Apăsând butonul de căutare fără a introduce un cuvânt intri automat in pagina de cautare avansată.
+</p>
+
+
+<h2>Calendar</h2>
+
+<p>
+Există trei tipuri de vizualizare: pe săptămână, pe lună, pe an. Evenimentele sunt afișate în ordine introducerii lor în calendar.
+</p>
+
+<p>
+Odată introduse, evenimentele sunt publice și vizibile pentru toată lumea. Doar administratorul
+și cel care a creat evenimentul îl poate modifica ulterior.
+</p>
+

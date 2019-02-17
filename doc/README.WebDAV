@@ -1,0 +1,93 @@
+WebDAV
+-----------------------------------------------
+
+LetoDMS has support for WebDAV which allows to easily add, delete,
+move, copy and modify documents. All operating systems have support
+for WebDAV as well, but the implemtations and their behaviour varys
+and consequently you may run into various problems. If this happens
+just file a bug report at https://sourceforge.net/projects/LetoDMS
+
+The folder structure in LetoDMS is similar to a regular file system
+but it is not identical. LetoDMS distinguishes between a document
+and its content, while a file system knows just files.
+In LetoDMS a document is uniquely identified
+by its document id and not neccessarily by its name. A filesystem
+requires a unique paths for each file. Two identical files in the
+same folder are not possible. LetoDMS can handle identically named
+documents in one folder. In order to prevent any problems arising from
+this, you should always disallow identical document names in the
+settings. By definition a file in WebDAV is mapped on the latest
+version of a document in LetoDMS. There is no way to access previous
+versions of a document via WebDAV. Whenever you modify a file and
+upload it with the web gui,
+a new version will be created. Unfortunately, this has some very
+nasty side effects when you edit a document version via WebDAV and
+often save it, because any save
+operation will create a new version. This is why the WebDAV
+server has a configuration option which allows to either replace
+the content of document or creating a new
+version if a document is saved.
+
+Configuring davfs2
+===================
+
+On Linux it is quite simple to mount the LetoDMS WebDAV server with
+davfs2. Just place a line like the following in your /etc/fstab
+
+http://LetoDMS.your-domain.com/webdav/index.php /media/webdav davfs noauto,user,rw,uid=1000,gid=1000
+
+and mount it as root with
+
+mount /media/webdav davfs
+
+You may as well want to configure davfs2 in /etc/davfs2/davfs2.conf by setting
+
+[/media/webdav]
+use_locks 0
+gui_optimize 1
+
+and possibly add your login data to /etc/davfs2/secrets
+
+/media/webdav admin secret
+
+Making applications work with WebDAV
+=====================================
+
+Various programms have differnt strategies to save files to disk and
+prevent data lost under all circumstances. Those strategies often don't
+work very well an a WebDAV-Server. The following will list some of those
+strategies.
+
+VIM
+=========================
+
+vim does a lot more than just reading and writing the file you want
+to edit. It creates swap and backup files for data recovery if vim crashes
+or is being killed unexpectively. On a low bandwidth connection this can
+slow down the editing. For that reason you should either not create the
+swap file at all or create it outside the WebDAV server. A second problem
+arises from how vim modifіes the file you are editing. Before a file
+is saved a backup is created by renaming the file to the same name with a
+'~' at the end and writing the file content into a new
+file with the name of the original file. Afterwards vim deleteѕ the backup
+file. On a regular file system you
+won't see a difference between the file before and after saving, though
+it is actually a new one. In LetoDMS you won't notice a difference either
+by just looking at the document name. It's still the same, but the
+document id has changed. So saving a document will delete the
+old document and create a new one instead of creating a new version of
+the old document. If you don't want this behaviour, then tell vim
+to not create the backup file. You can do that by either passing additional
+parameters to vim
+
+vi "+set nobackup" "+set nowritebackup" -n test.txt
+
+or by setting them in your .vimrc
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+Creating the backup file in a directory outside of WebDAV doesn't help in
+this case, because it still does the file renaming which is turned of by
+'nowritebackup'.

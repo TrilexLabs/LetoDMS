@@ -1,0 +1,181 @@
+<h1>Notes Générales</h1>
+
+<p>
+Un DMS (Document Management System) est conçu pour permettre le partage de documents en
+contrôlant les flux d'approbation, les autorisations d'accès et l'organisation en général.
+</p>
+
+<p>
+En utilisant le menu de premier niveau, l'utilisateur peut accéder aux différentes informations stockées dans le système :
+<ul>
+<li>Contenu : permet de parcourir les documents dans un style de gestionnaire de fichiers.
+<li>Mes documents : dispose de plusieurs entrées pour accéder aux documents d'intérêt :
+<ul>
+<li>Documents en cours : listes de documents en attente d'examen ou d'approbation par l'utilisateur,
+documents détenus par l'utilisateur qui attendent l'approbation ou la révision, documents verrouillés par l'utilisateur.
+<li>Tous les documents : liste de tous les documents détenus par l'utilisateur.
+<li>Résumé de la revue : liste tous les documents qui ont été examinés ou en attente d'examen par l'utilisateur.
+<li>Résumé d'approbation : liste tous les documents approuvés ou en attente d'approbation par l'utilisateur.
+</ul>
+</ul>
+</p>
+
+<p>
+Ce DMS fournit également un calendrier qui sert de pour partager des notes, des nominations, 
+des échéances et des engagements.
+</p>
+
+
+<h1>Permissions</h1>
+
+<p>
+Les utilisateurs autorisés peuvent définir si et comment d'autres utilisateurs auront accès à divers dossiers
+et documents soumis.
+</p>
+
+<h2>Niveaux d'autorisations</h2>
+<p>
+Les niveaux d'accès possibles sont :
+<ul>
+<li>Tous les droits : l'utilisateur peut effectuer toutes les opérations.
+<li>Lecture et Ecriture : l'utilisateur peut mettre à jour les enregistrements et ajouter du contenu aux dossiers.
+<li>En lecture seule : l'utilisateur peut afficher le contenu des dossiers et télécharger des documents.
+<li>Pas d'accès : l'utilisateur ne peut pas afficher le contenu des dossiers ou des documents individuels.
+</ul>
+</p>
+
+<p>
+Par défaut, les administrateurs disposent d'autorisations totales sur chaque document et dossier
+sur le système. De même, le titulaire du document a une permission totale sur ses documents.
+</p>
+
+<p>
+Seuls les utilisateurs avec des droits administrateurs peuvent modifier le propriétaire d'un document.
+</p>
+
+<h2>Gestion de permissions</h2>
+<p>
+Pour chaque dossier ou documents les autorisations sont gérées par deux canaux différents :
+<ul>
+<li>Les autorisations par défaut sont validés en l'absence d'autres spécifications
+<li>La liste des autorisations vous permet de spécifier des exceptions aux autorisations par défaut
+</ul>
+</p>
+
+<h2>Héritage d'autorisations</h2>
+<p>
+Les permissions des dossiers et des documents peuvent être définies comme héritées.
+Dans ce cas, les fichiers et dossiers héritent des mêmes permissions du dossier
+qui les contient.
+</p>
+
+
+<h1>Chaîne d'approbation des documents</h1>
+
+<p>
+Le système gère automatiquement le workflow pour chaque document et stocke
+les modifications, les versons, les commentaires, etc...
+</p>
+
+<h2>Cycle de validation</h2>
+<p>
+Le flux de travail normal requiert, lors du chargement d'un nouveau document ou nouvelle version 
+d'indiquer certains utilisateurs ou groupes d'utilisateurs comme examinateurs et / ou approbateurs.
+Les utilisateurs répertoriés comme examinateurs et approbateurs doivent expliquer leur approbation au document. 
+lorsque cette opération est effectuée tous les utilisateurs figurant sur la liste examinateurs/approbateur voient l'état du document mis à «libéré».
+</p>
+
+<p>
+L'évaluateur/approbateur peut refuser son approbation au document.
+Dans ce cas, l'état du document est réglé sur «rejeté».
+</p>
+
+<p>
+Un document ou ne sont pas définis des réviseurs/approbateurs prend immédiatement l'état de «libéré».
+</p>
+
+<p>
+Comme approbateurs/examinateurs, on peut indiquer des groupes d'utilisateurs. Dans ce cas,
+l'examen ou l'approbation doit être fait par l'un des utilisateurs appartenant au groupe.
+</p>
+
+<p>
+Le propriétaire du document peut à tout moment modifier la liste des examinateurs / approbateurs.
+</p>
+
+<h2>Statut des Documents</h2>
+<p>
+Les états possibles pour un document sont:
+<ul>
+<li>Projet d'approbation en cours : une ou plusieurs des approbations mentionnées n'ont pas encore été données.
+<li>Ébauche d'examen en instance : un ou plusieurs des examinateurs énumérés n'ont pas encore rendu leur avis.
+<li>Libéré : le document a terminé avec succès son cycle de validation.
+<li>Rejeté : le document a interrompu son cycle de validation.
+<li>Expiré : vous avez dépassé la date limite pour l'achèvement de la validation du document.
+<li>Obsolète : l'état d'un document publié peut être modifié pour devenir obsolète. C'est une alternative à 
+l'annulation du document. L'état obsolète est réversible.
+</ul>
+</p>
+
+<h2>Expiration</h2>
+<p>
+Pour chaque document en production, vous pouvez définir une date d'échéance.
+Une fois passé le délai, les révisions ou approbations ne sont plus possibles. 
+Le document entre dans un état «expiré».
+</p>
+
+<p>
+La date limite n'est prise en compte que pour la dernière version du document
+et n'a d'effet que sur le traitement des documents.
+</p>
+
+
+<h1>Autres Fonctionnalités</h1>
+
+<h2>Fonction Verrouillage</h2>
+<p>
+La fonction de verrouillage est conçue pour indiquer aux autres utilisateurs qu'un document
+est en cours. Les utilisateurs ayant une autorisation totale sur le document peuvent
+annuler le verrouillage et procéder à une modification du document.
+</p>
+
+<h2>Notifications</h2>
+<p>
+Chaque utilisateur peut demander une notification sur les documents et les dossiers.
+Ajout d'un fichier ou d'un dossier dans votre liste de notifications et vous recevrez
+une notification des transactions par d'autres utilisateurs.
+</p>
+
+<p>
+Seul le gestionnaire d'un groupe peut décider d'intégrer ou non un utilisateur dans le groupes des
+rapports sur les documents et les dossiers. Une fois insérées, les notifications sont envoyées à
+tous les membres du groupe.
+</p>
+
+<h2>Mots clés et Recherche</h2>
+<p>
+Chaque document permet d'inclure une description et quelques mots-clés.
+Ces informations sont utilisées pour accélérer la fonction de recherche.
+</p>
+<p>
+Dans le menu de compte personnel, chaque utilisateur peut stocker un ensemble de mots-clés regroupés 
+par catégories, afin d'accélérer le remplissage lors du chargement des documents.
+</p>
+
+<p>
+En appuyant sur le bouton de recherche sans entrer de mot, vous accédez à la page de recherche avancée.
+</p>
+
+
+<h2>Calendrier</h2>
+
+<p>
+Il ya trois vues : par semaine, mois, année. Les événements sont affichés dans l'ordre
+d'insertion dans le calendrier.
+</p>
+
+<p>
+Une fois insérés, les événements sont publics et visibles pour tous. Seul l'administrateur
+qui a rentré l'événement peut le modifier plus tard.
+</p>
+

@@ -1,0 +1,26 @@
+Howto configure mod_xsendfile
+==============================
+
+Downloading large files from LetoDMS can be slow, because they are delivered
+by the PHP download script. This is a common problem not specific to LetoDMS
+but to PHP scripts of this kind in general. Granting direct access on the
+download file is not a option as it circumvents the access restrictions of
+LetoDMS.
+
+The Apache module xsendfile is just for this kind of controlled downloads. If
+is installed and configured, LetoDMS will hand over the download to the web
+server which does a much better job than the PHP script. In order to make it
+work, mod_xsendfile must be installed, turned on and the path to the download
+files must be set to the directory containing the document files. If your document
+root is /var/www and you extracted the quickstart archive into that directory,
+then the document content directory will be at
+/var/www/LetoDMS51x/data/ . Add the following to your apache configuration,
+either globally or within a virtual host configuration. Setting the path in
+an .htaccess file will not work.
+
+XSendFile on
+XSendFilePath /var/www/LetoDMS51x/data/
+
+If the XSendFilePath is not set propperly, you will notice an error message
+in your apache log file, probably telling you that the download file could not
+be found.

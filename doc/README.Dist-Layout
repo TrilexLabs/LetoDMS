@@ -1,0 +1,94 @@
+LetoDMS of installation
+=======================
+
+LetoDMS allows various kinds of installations with very individual LetoDMSs
+on disc. The proposed LetoDMS till version 5.1.6 was as the following:
+
+LetoDMS51x ---+--- data
+              |
+              +--- pear
+              |
+              +--- LetoDMS-5.1.x
+              |
+              +--- www -> LetoDMS-5.1.x
+
+'data' contains all document files, the sqlite database (if used), the full text
+data, the log files, and the cached preview images.
+
+'pear' contains all PEAR packages including the four LetoDMS packages LetoDMS_Core,
+LetoDMS_Lucene, LetoDMS_Preview, LetoDMS_SQLiteFTS.
+
+'LetoDMS-5.1.x' are the sources of LetoDMS and 'www' being a link on it.
+
+This LetoDMS has disadvantages when updating the source of LetoDMS, because
+the directories 'conf' and 'ext' has to be moved from 'LetoDMS-5.1.x' to
+'LetoDMS-5.1.(x+1)'. 'conf' was also visible over the web unless it was
+protected by an .htaccess file. The .htaccess file has been shipped, but it
+is far better to keep senѕitive data out of the document root in the first
+place.
+
+The new LetoDMS mostly retains that structure but uses more soft links to place
+the local data outside of 'LetoDMS-5.1.x' which makes updating a lot easier
+and moves the configuration out of the document root.
+As MS Windows does not support soft links, this change will only apply to Linux/Unix
+systems. The new LetoDMS is the following:
+
+LetoDMS51x ---+--- data --+-- log
+              |           |
+              |           +-- ext
+              |           |
+              |           +-- ...
+              |
+              +--- pear
+              |
+              +--- conf
+              |
+              +--- LetoDMS-5.1.x
+              |
+              +--- LetoDMS -> LetoDMS-5.1.x
+              |
+              +--- www --+-- inc -> ../LetoDMS/inc
+                         |
+                         +-- op -> ../LetoDMS/op
+                         |
+                         +-- out -> ../LetoDMS/out
+                         |
+                         +-- views -> ../LetoDMS/views
+                         |
+                         +-- controllers -> ../LetoDMS/controllers
+                         |
+                         +-- styles -> ../LetoDMS/styles
+                         |
+                         +-- languages -> ../LetoDMS/languages
+                         |
+                         +-- webdav -> ../LetoDMS/webdav
+                         |
+                         +-- restapi -> ../LetoDMS/restapi
+                         |
+                         +-- pdfviewer -> ../LetoDMS/pdfviewer
+                         |
+                         +-- index.php -> ../LetoDMS/index.php
+                         |
+                         +-- ext -> ../data/ext
+
+In order to convert to this LetoDMS you need to do the following in the LetoDMS51x
+directory:
+
+ln -s LetoDMS-5.1.x LetoDMS
+mv www/conf .
+mv www/ext data
+rm www
+mdkir www
+cd www
+ln -s ../LetoDMS/inc
+ln -s ../LetoDMS/op
+ln -s ../LetoDMS/out
+ln -s ../LetoDMS/views
+ln -s ../LetoDMS/controllers
+ln -s ../LetoDMS/styles
+ln -s ../LetoDMS/languages
+ln -s ../LetoDMS/webdav
+ln -s ../LetoDMS/restapi
+ln -s ../LetoDMS/pdfviewer
+ln -s ../LetoDMS/index.php
+ln -s ../data/ext

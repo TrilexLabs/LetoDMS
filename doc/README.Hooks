@@ -1,0 +1,85 @@
+Hooks
+======
+
+Attention: the api for hooks isn't stable yet!
+
+Hooks in LetoDMS are user definied methods which are being called by
+the application. The LetoDMS Core also has hooks which are being
+called from the core itself. They are not subject of this document.
+The LetoDMS application distinguishes between
+
+* view hooks and
+* controller hooks
+
+view hooks usually return some html output which is send to the browser
+and either replaces the default output or adds additional information.
+A view hooks which returns false will be considered as not being called
+at all.
+
+controller hooks implement additional functions which either replace
+existing functions or add new ones. If such a hook returns null then
+this is treated as if the hook was not called. If the hook returns
+false it will prevent other hooks implementing the same function from
+being called. All other return values will not stop other hooks from
+being called.
+
+Currently available controller hooks
+------------------------------------
+AddDocument::preAddDocument
+  Called before a new document will be added
+
+AddDocument::postAddDocument
+  Called after a new document has been added
+
+AddDocument::preIndexDocument
+  Called before a new document will be indexed
+
+UpdateDocument::preUpdateDocument
+  Called before a new document will be updated
+
+UpdateDocument::postUpdateDocument
+  Called after a new document has been updated
+
+UpdateDocument::preIndexDocument
+  Called before an updated document will be indexed
+
+RemoveDocument::preRemoveDocument
+  Called before a document will be removed
+
+RemoveDocument::removeDocument
+  Called for removing the document. If the hook returns null the
+  regular document removal will happen.
+
+RemoveDocument::postRemoveDocument
+  Called after a document was removed
+
+RemoveFolder::preRemoveFolder
+  Called before a document will be removed
+
+RemoveFolder::removeFolder
+  Called for removing the folder. If the hook returns null the
+  regular folder removal will happen.
+
+RemoveFolder::postRemoveFolder
+  Called after a document was removed
+
+EditFolder::preEditFolder
+
+EditFolder::EditFolder
+
+EditFolder::postEditFolder
+
+ViewOnline::version
+  Called when a document is downloaded for online view
+
+Download::version
+  Called when a document is downloaded for saving on disk
+
+Login::postLogin
+  Called after user in fully logged in
+
+Logout::postLogout
+  Called after user is logged out
+
+Currently available view hooks
+------------------------------------

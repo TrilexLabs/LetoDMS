@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.8.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>LetoDMS_Core</name>
+ <channel>pear.php.net</channel>
+ <summary>Document management system</summary>
+ <description>LetoDMS is a web based document management system (DMS). This is
+ the core of it, providing the basic functionality to create/update and delete
+ folders and documents. It also contains a user and group managment</description>
+ <lead>
+  <name>Uwe Steinmann</name>
+  <user>steinm</user>
+  <email>uwe@steinmann.cx</email>
+  <active>yes</active>
+ </lead>
+ <date>2018-11-13</date>
+ <time>07:31:17</time>
+ <version>
+  <release>5.1.9</release>
+  <api>5.1.9</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+ <notes>
+context can be passed to getAccessMode()
+call hook in LetoDMS_Core_Folder::getAccessMode()
+new optional parameter $listguest for LetoDMS_Core_Document::getReadAccessList()
+remove deprecated methods LetoDMS_Core_Document::convert(), LetoDMS_Core_Document::wasConverted(), LetoDMS_Core_Document::viewOnline(), LetoDMS_Core_Document::getUrl()
+ </notes>
+ <contents>
+  <dir baseinstalldir="LetoDMS" name="/">
+   <dir name="Core">
+    <file name="inc.ClassDocument.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassFolder.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassDMS.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassUser.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassGroup.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.DBAccess.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.DBAccessPDO.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.AccessUtils.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.FileUtils.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassAccess.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassKeywords.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassNotification.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassDocumentCategory.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassObject.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassAttribute.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+    <file name="inc.ClassWorkflow.php" role="php">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /DTD -->
+   <dir name="tests">
+    <file name="getfoldertree.php" role="test" />
+    <file name="getusers.php" role="test" />
+   </dir> <!-- /tests -->
+   <file name="Core.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.5.4</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>3.0.0</release>
+    <api>3.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2010-04-27</date>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+Initial release
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>3.2.0</release>
+    <api>3.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-07-23</date>
+   <time>08:05:38</time>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+New release
+   </notes>
+  </release>
+  <release>
+   <date>2012-02-08</date>
+   <time>08:05:38</time>
+   <version>
+    <release>3.3.0</release>
+    <api>3.3.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- added methods to find and repair errors in document and folder records
+- removed sendmail parameter from some methods in LetoDMS_Core_Document
+- do not use some of the temporay tables anymore
+- SetFetchMode(ADODB_FETCH_ASSOC) in LetoDMS_Core_DatabaseAccess::connect()
+   </notes>
+  </release>
+  <release>
+   <date>2012-03-21</date>
+   <time>07:39:48</time>
+   <version>
+    <release>3.3.1</release>
+    <api>3.3.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- new release
+   </notes>
+  </release>
+  <release>
+   <date>2012-03-22</date>
+   <time>08:07:42</time>
+   <version>
+    <release>3.3.2</release>
+    <api>3.3.2</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fixed bug in LetoDMS_Core_Document::getDir()
+   </notes>
+  </release>
+  <release>
+   <date>2012-03-28</date>
+   <time>08:42:35</time>
+   <version>
+    <release>3.3.3</release>
+    <api>3.3.3</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fixed bug in LetoDMS_Core_Document::getPath()
+   </notes>
+  </release>
+  <release>
+   <date>2012-04-11</date>
+   <time>13:34:30</time>
+   <version>
+    <release>3.3.4</release>
+    <api>3.3.4</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fixed bug in LetoDMS_Core_DocumentFile::getPath()
+   </notes>
+  </release>
+  <release>
+   <date>2012-04-30</date>
+   <time>17:11:05</time>
+   <version>
+    <release>3.3.5</release>
+    <api>3.3.5</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- minor corrections
+   </notes>
+  </release>
+  <release>
+   <date>2012-07-16</date>
+   <time>16:04:58</time>
+   <version>
+    <release>3.3.6</release>
+    <api>3.3.6</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- no changes, just keep same version as letodms application
+   </notes>
+  </release>
+  <release>
+   <date>2012-08-25</date>
+   <time>22:07:58</time>
+   <version>
+    <release>3.3.7</release>
+    <api>3.3.7</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- no changes, just keep same version as letodms application
+   </notes>
+  </release>
+  <release>
+   <date>2012-09-16</date>
+   <time>22:14:08</time>
+   <version>
+    <release>3.3.8</release>
+    <api>3.3.8</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- more sql injection protection in LetoDMS_Core_User
+   </notes>
+  </release>
+  <release>
+   <date>2012-09-19</date>
+   <time>08:43:18</time>
+   <version>
+    <release>3.3.9</release>
+    <api>3.3.9</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- version update to be in sync with letodms application
+   </notes>
+  </release>
+  <release>
+   <date>2012-12-13</date>
+   <time>08:02:34</time>
+   <version>
+    <release>3.4.0</release>
+    <api>3.4.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- added PDO database driver, several sql changes for better compatiblity
+- fixed bug when adding a new document category
+- make sure the database remains consistent even in case of errors
+   </notes>
+  </release>
+  <release>
+   <date>2013-01-24</date>
+   <time>08:02:34</time>
+   <version>
+    <release>4.0.0pre1</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- added database transactions
+- new workflow
+- replaced old var declaration
+   </notes>
+  </release>
+  <release>
+   <date>2013-02-06</date>
+   <time>08:02:34</time>
+   <version>
+    <release>4.0.0pre2</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- lots of bug fixes
+- replaced more of old var declaration
+- more code documentation
+   </notes>
+  </release>
+  <release>
+   <date>2013-02-08</date>
+   <time>08:02:34</time>
+   <version>
+    <release>4.0.0pre3</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- minor bug fixes
+   </notes>
+  </release>
+  <release>
+   <date>2013-02-11</date>
+   <time>15:04:08</time>
+   <version>
+    <release>4.0.0pre4</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- calculate checksum for document versions
+- some bug fixes
+- some more documentation
+- added new methods LetoDMS_Core_Document::getReadUserList() and
+  LetoDMS_Core_Folder::getReadUserList() which replaces getApproversList()
+- fixed sql statement in getReadUserList() for sqlite3
+   </notes>
+  </release>
+  <release>
+   <date>2013-02-14</date>
+   <time>17:36:08</time>
+   <version>
+    <release>4.0.0pre5</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- changed name from letodms to LetoDMS
+- fixed LetoDMS_Database::TableList()
+   </notes>
+  </release>
+  <release>
+   <date>2013-02-20</date>
+   <time>17:36:08</time>
+   <version>
+    <release>4.0.0RC1</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- minor bugfixes
+   </notes>
+  </release>
+  <release>
+   <date>2013-02-26</date>
+   <time>15:04:08</time>
+   <version>
+    <release>4.0.0</release>
+    <api>4.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- minor bugfixes
+   </notes>
+  </release>
+  <release>
+   <date>2013-03-28</date>
+   <time>13:39:21</time>
+   <version>
+    <release>4.1.0</release>
+    <api>4.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- minor bugfixes
+   </notes>
+  </release>
+  <release>
+   <date>2013-04-05</date>
+   <time>16:08:38</time>
+   <version>
+    <release>4.1.1</release>
+    <api>4.1.1</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- stay in sync with LetoDMS application
+   </notes>
+  </release>
+  <release>
+   <date>2013-04-05</date>
+   <time>16:08:38</time>
+   <version>
+    <release>4.1.2</release>
+    <api>4.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- set propper folderList of sub folders after moving a folder
+   </notes>
+  </release>
+  <release>
+   <date>2013-04-08</date>
+   <time>16:45:06</time>
+   <version>
+    <release>4.1.3</release>
+    <api>4.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- stay in sync with LetoDMS application
+   </notes>
+  </release>
+  <release>
+   <date>2013-04-22</date>
+   <time>09:18:47</time>
+   <version>
+    <release>4.2.0</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fixed bug in LetoDMS_Core_DocumentContent::addIndApp()
+   </notes>
+  </release>
+  <release>
+   <date>2013-04-30</date>
+   <time>07:43:29</time>
+   <version>
+    <release>4.2.1</release>
+    <api>4.2.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fixed bug in LetoDMS_Core_DocumentContent::addIndApp()
+   </notes>
+  </release>
+  <release>
+   <date>2013-05-17</date>
+   <time>09:21:37</time>
+   <version>
+    <release>4.2.2</release>
+    <api>4.2.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- admins can be added as reviewer/approver again
+   </notes>
+  </release>
+  <release>
+   <date>2013-09-05</date>
+   <time>07:41:57</time>
+   <version>
+    <release>4.3.0</release>
+    <api>4.3.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- various small corrections
+- comment of version is no longer taken from document if version comment is empty
+- passing an array of users to SeedDMЅ_Core_DMS::search() instead of a single user ist now allowed
+- turn on foreign key constraints for sqlite3
+- SeedDMЅ_Core_Folder::getPath() can handle a subfolder treated as a root folder
+   </notes>
+  </release>
+  <release>
+   <date>2013-11-27</date>
+   <time>10:57:32</time>
+   <version>
+    <release>4.3.2</release>
+    <api>4.3.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- new method LetoDMS_Core_Folder::isSubFolder()
+- check for subFolder in LetoDMS_Core_Folder::setParent()
+- new methods LetoDMS_Core_DMS::checkFolders() and LetoDMS_Core_DMS::checkDocuments()
+   </notes>
+  </release>
+  <release>
+   <date>2014-02-01</date>
+   <time>16:19:34</time>
+   <version>
+    <release>4.3.3</release>
+    <api>4.3.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- LetoDMS_Folder::getDocuments() and LetoDMS_Folder::getSubFolders() do not
+  do any sorting if $orderby is not set.
+- database hostname can have port seperated by ':'
+- make all functions in LetoDMS_Core_File static (fixes problem with php 5.5.x)
+   </notes>
+  </release>
+  <release>
+   <date>2014-02-01</date>
+   <time>16:19:34</time>
+   <version>
+    <release>4.3.4</release>
+    <api>4.3.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fix handling of multivalue attributes
+   </notes>
+  </release>
+  <release>
+   <date>2014-03-04</date>
+   <time>16:19:34</time>
+   <version>
+    <release>4.3.5</release>
+    <api>4.3.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+no changes
+   </notes>
+  </release>
+  <release>
+   <date>2014-03-18</date>
+   <time>16:19:34</time>
+   <version>
+    <release>4.3.6</release>
+    <api>4.3.6</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add optional parameters $publiconly=false and $user=null to LetoDMS_Core_Document::getDocumentLinks()
+- add new method LetoDMS_Core_Document::getReverseDocumentLinks()
+   </notes>
+  </release>
+  <release>
+   <date>2014-03-21</date>
+   <time>09:03:59</time>
+   <version>
+    <release>4.3.7</release>
+    <api>4.3.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+no changes
+   </notes>
+  </release>
+  <release>
+   <date>2014-04-09</date>
+   <time>09:03:59</time>
+   <version>
+    <release>4.3.8</release>
+    <api>4.3.8</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- new method LetoDMS_Core_DMS::getStatisticalData()
+   </notes>
+  </release>
+  <release>
+	 <date>2014-07-30</date>
+	 <time>09:03:59</time>
+	 <version>
+		<release>4.3.9</release>
+		<api>4.3.9</api>
+	 </version>
+	 <stability>
+		<release>stable</release>
+		<api>stable</api>
+	 </stability>
+	 <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+	 <notes>
+- LetoDMS_Core_KeywordCategory::getKeywordLists() sorts keywords aphabetically
+- LetoDMS_Core_DMS::addUser() doesn't throw an error if sql_mode is set to STRICT_TRANS_TABLES and pwdexpiration is not set to a valid date.
+	 </notes>
+  </release>
+  <release>
+   <date>2014-10-22</date>
+   <time>14:13:32</time>
+   <version>
+    <release>4.3.10</release>
+    <api>4.3.10</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+new release
+   </notes>
+  </release>
+  <release>
+   <date>2014-11-13</date>
+   <time>09:09:35</time>
+   <version>
+    <release>4.3.11</release>
+    <api>4.3.11</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fixed saving multivalue attributes
+- add method LetoDMS_Core_Attribute::getValueAsArray()
+   </notes>
+  </release>
+  <release>
+   <date>2014-11-17</date>
+   <time>09:09:35</time>
+   <version>
+    <release>4.3.12</release>
+    <api>4.3.12</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fix searching folders with multivalue attributes
+   </notes>
+  </release>
+  <release>
+   <date>2014-11-27</date>
+   <time>11:56:35</time>
+   <version>
+    <release>4.3.13</release>
+    <api>4.3.13</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fix searching for attributes
+- add some more documentation
+- LetoDMS_Core_DMS::getDocumentCategories() returns categories sorted by name (Bug #181)
+- new methode LetoDMS_Core_Document::replaceContent() which replaces the content of a version.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.3.14</release>
+    <api>4.3.14</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add missing start transaction in SeedDMD_Core_Folder::remove()
+- SeedDMD_Core_Folder::isSubFolder() doesn't compare object instances anymore (Bug #194)
+   </notes>
+  </release>
+  <release>
+   <date>2015-02-12</date>
+   <time>18:23:24</time>
+   <version>
+    <release>4.3.15</release>
+    <api>4.3.15</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+users returned by LetoDMS_Core_DMS::getAllUsers() have language and theme set again
+   </notes>
+  </release>
+  <release>
+   <date>2015-03-20</date>
+   <time>08:02:04</time>
+   <version>
+    <release>4.3.16</release>
+    <api>4.3.16</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+no changes
+   </notes>
+  </release>
+  <release>
+   <date>2015-03-27</date>
+   <time>08:02:04</time>
+   <version>
+    <release>4.3.17</release>
+    <api>4.3.17</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+clean workflow log when a document version was deleted
+   </notes>
+  </release>
+  <release>
+   <date>2015-06-09</date>
+   <time>11:26:18</time>
+   <version>
+    <release>4.3.18</release>
+    <api>4.3.18</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add optional paramter $msg to LetoDMS_Core_DocumentContent::verifyStatus()
+- add method LetoDMS_Core_DMS::getDuplicateDocumentContent()
+   </notes>
+  </release>
+  <release>
+   <date>2015-06-26</date>
+   <time>16:45:59</time>
+   <version>
+    <release>4.3.19</release>
+    <api>4.3.19</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add optional paramter $noclean to clearAccessList(), setDefaultAccess(), setInheritAccess()
+- clearAccessList() will clean up the notifier list
+- new method cleanNotifyList()
+   </notes>
+  </release>
+  <release>
+   <date>2015-06-26</date>
+   <time>16:45:59</time>
+   <version>
+    <release>4.3.20</release>
+    <api>4.3.20</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add method LetoDMS_Core_DMS::checkDate()
+- add method LetoDMS_Core_Document::setDate()
+- add method LetoDMS_Core_Folder::setDate()
+- date can be passed to LetoDMS_Core_DocumentContent::setStatus()
+- add method LetoDMS_Core_DocumentContent::rewriteStatusLog()
+- add method LetoDMS_Core_DocumentContent::rewriteReviewLog()
+- add method LetoDMS_Core_DocumentContent::rewriteApprovalLog()
+- access rights for guest are also taken into account if set in an acl. Previously guest could gain read rights even if the access was probibited
+by a group or user right
+   </notes>
+  </release>
+  <release>
+   <date>2015-09-28</date>
+   <time>07:53:19</time>
+   <version>
+    <release>4.3.21</release>
+    <api>4.3.21</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add method LetoDMS_Core_Database::getCurrentTimestamp()
+- add method LetoDMS_Core_Database::getCurrentDatetime()
+- user getCurrentTimestamp() and getCurrentDatetime() whenever possible
+   </notes>
+  </release>
+  <release>
+   <date>2015-11-09</date>
+   <time>19:49:20</time>
+   <version>
+    <release>4.3.22</release>
+    <api>4.3.22</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fix sql statement to reset password
+- pass some more information for timeline
+   </notes>
+  </release>
+  <release>
+   <date>2016-01-21</date>
+   <time>07:12:53</time>
+   <version>
+    <release>4.3.23</release>
+    <api>4.3.23</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- new method LetoDMS_Core_DMS::createDump()
+- minor improvements int LetoDMS_Core_Document::getReadAccessList()
+	 </notes>
+  </release>
+  <release>
+   <date>2016-01-22</date>
+   <time>07:12:53</time>
+   <version>
+    <release>4.3.24</release>
+    <api>4.3.24</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- make sure boolean attribute is saved as 0/1
+- add LetoDMS_Core_User::[g|s]etMandatoryWorkflows()
+- add LetoDMS_Core_User::getNotifications()
+- add LetoDMS_Core_Group::getNotifications()
+- LetoDMS_Core_DMS::getNotificationsByGroup() and
+LetoDMS_Core_DMS::getNotificationsByUser() are deprecated
+- LetoDMS_Core_DocumentCategory::getDocumentsByCategory() now returns the documents
+- add LetoDMS_Core_Group::getWorkflowStatus()
+- LetoDMS_Core_User::getDocumentsLocked() sets locking user propperly
+	 </notes>
+  </release>
+  <release>
+   <date>2016-01-22</date>
+   <time>09:28:28</time>
+   <version>
+    <release>5.0.0</release>
+    <api>5.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- classes can be overloaded
+- clean workflow log when a document version was deleted
+   </notes>
+  </release>
+  <release>
+   <date>2016-01-21</date>
+   <time>07:12:53</time>
+   <version>
+    <release>4.3.24</release>
+    <api>4.3.24</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- make sure boolean attribute is saved as 0/1
+- add LetoDMS_Core_User::[g|s]etMandatoryWorkflows()
+- add LetoDMS_Core_User::getNotifications()
+- add LetoDMS_Core_Group::getNotifications()
+- LetoDMS_Core_DMS::getNotificationsByGroup() and
+LetoDMS_Core_DMS::getNotificationsByUser() are deprecated
+- LetoDMS_Core_DocumentCategory::getDocumentsByCategory() now returns the documents
+- add LetoDMS_Core_Group::getWorkflowStatus()
+- LetoDMS_Core_User::getDocumentsLocked() sets locking user propperly
+   </notes>
+  </release>
+  <release>
+   <date>2016-03-08</date>
+   <time>07:12:53</time>
+   <version>
+    <release>4.3.25</release>
+    <api>4.3.25</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- rename LetoDMS_Core_Group::getNotificationsByGroup() to getNotifications()
+- use __construct() for all constructors
+- fix setting multi value attributes for versions
+   </notes>
+  </release>
+  <release>
+   <date>2016-04-04</date>
+   <time>07:38:23</time>
+   <version>
+    <release>4.3.26</release>
+    <api>4.3.26</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add more callbacks
+	 </notes>
+  </release>
+  <release>
+   <date>2016-04-26</date>
+   <time>12:04:59</time>
+   <version>
+    <release>4.3.27</release>
+    <api>4.3.27</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- callbacks can have more then one user function
+- fix some sql statements, because they didn't work with mysql 5.7.5 anymore
+   </notes>
+  </release>
+  <release>
+   <date>2016-08-24</date>
+   <time>10:18:59</time>
+   <version>
+    <release>4.3.28</release>
+    <api>4.3.28</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- SeedDMЅ_Core_DMS::search() searches also comment of document version
+   </notes>
+  </release>
+  <release>
+   <date>2016-09-06</date>
+   <time>10:18:59</time>
+   <version>
+    <release>4.3.29</release>
+    <api>4.3.29</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- SeedDMЅ_Core_Object::getAttributes() orders attributes by name of attribute definition
+- SeedDMЅ_Core_Workflow::addTransition() force reload of transition list after adding a
+- SeedDMЅ_Core_Document::rewrite[Review|Approval]Log() will also copy file if it exists
+- add method SeedDMЅ_Core_Document::rewriteWorkflowLog()
+   </notes>
+  </release>
+  <release>
+   <date>2016-10-07</date>
+   <time>10:18:59</time>
+   <version>
+    <release>4.3.30</release>
+    <api>4.3.30</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- new method SeedDMЅ_Core_AttributeDefinition::getValueSetSeparator() 
+- trim each value of a value set before saving the complete value set as a string
+   </notes>
+  </release>
+  <release>
+   <date>2016-11-02</date>
+   <time>10:18:59</time>
+   <version>
+    <release>4.3.31</release>
+    <api>4.3.31</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- new method SeedDMЅ_Core_WorkflowAction::getTransitions() 
+- new method SeedDMЅ_Core_WorkflowState::getTransitions() 
+- new method SeedDMЅ_Core_AttributeDefinition::parseValue() 
+- add check for cycles in workflow LetoDMS_Core_Workflow::checkForCycles()
+   </notes>
+  </release>
+  <release>
+   <date>2017-01-12</date>
+   <time>10:18:59</time>
+   <version>
+    <release>4.3.32</release>
+    <api>4.3.32</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- order groups by name returned by getReadAccessList()
+- add optional parameter to LetoDMS_Core_DMS::filterDocumentLinks()
+- LetoDMS_Core_DMS::search() can search for document/folder id
+   </notes>
+  </release>
+  <release>
+   <date>2017-02-22</date>
+   <time>11:25:11</time>
+   <version>
+    <release>4.3.33</release>
+    <api>4.3.33</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- SeedDMЅ_Core_DMS::getTimeline() no longer returns duplicate documents
+- SeedDMЅ_Core_Document::addContent() sets workflow after status was set
+- SeedDMЅ_Core_Keyword::setOwner() fix sql statement
+- SeedDMЅ_Core_User::setFullname() minor fix in sql statement
+   </notes>
+  </release>
+  <release>
+   <date>2017-02-28</date>
+   <time>06:38:12</time>
+   <version>
+    <release>4.3.34</release>
+    <api>4.3.34</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+LetoDMS_Core_DMS::getDuplicateDocumentContent() returns complete document
+   </notes>
+  </release>
+  <release>
+   <date>2017-07-11</date>
+   <time>06:38:12</time>
+   <version>
+    <release>4.3.35</release>
+    <api>4.3.35</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+do not sort some temporary tables anymore, because it causes an error in mysql if sql_mode=only_full_group_by is set
+   </notes>
+  </release>
+  <release>
+   <date>2017-03-22</date>
+   <time>06:38:12</time>
+   <version>
+    <release>4.3.36</release>
+    <api>4.3.36</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- fix sql statement for creating temp. tables (sqlite)
+   </notes>
+  </release>
+  <release>
+   <date>2018-02-14</date>
+   <time>06:38:12</time>
+   <version>
+    <release>4.3.37</release>
+    <api>4.3.37</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- LetoDMS_Core_DMS::search() finds documents without a status log
+   </notes>
+  </release>
+  <release>
+   <date>2016-01-22</date>
+   <time>14:34:58</time>
+   <version>
+    <release>5.0.1</release>
+    <api>5.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.24 merged
+   </notes>
+  </release>
+  <release>
+   <date>2016-04-26</date>
+   <time>12:04:59</time>
+   <version>
+    <release>5.0.2</release>
+    <api>5.0.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.25 merged
+	 </notes>
+  </release>
+  <release>
+   <date>2016-04-04</date>
+   <time>08:56:33</time>
+   <version>
+    <release>5.0.3</release>
+    <api>5.0.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- use classname from LetoDMS_Core_DMS::_classnames for LetoDMS_Core_DocumentContent
+- all changes from 4.3.26 merged
+   </notes>
+  </release>
+  <release>
+   <date>2016-05-03</date>
+   <time>08:56:33</time>
+   <version>
+    <release>5.0.4</release>
+    <api>5.0.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.27 merged
+   </notes>
+  </release>
+  <release>
+   <date>2016-08-09</date>
+   <time>06:23:34</time>
+   <version>
+    <release>5.0.5</release>
+    <api>5.0.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.28 merged
+   </notes>
+  </release>
+  <release>
+   <date>2016-09-06</date>
+   <time>06:23:34</time>
+   <version>
+    <release>5.0.6</release>
+    <api>5.0.6</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.29 merged
+   </notes>
+  </release>
+  <release>
+   <date>2016-11-02</date>
+   <time>06:23:34</time>
+   <version>
+    <release>5.0.7</release>
+    <api>5.0.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.30 merged
+- better attribute value checking
+   </notes>
+  </release>
+  <release>
+   <date>2016-11-02</date>
+   <time>06:23:34</time>
+   <version>
+    <release>5.0.8</release>
+    <api>5.0.8</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.31 merged
+   </notes>
+  </release>
+  <release>
+   <date>2016-11-02</date>
+   <time>06:23:34</time>
+   <version>
+    <release>5.0.9</release>
+    <api>5.0.9</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.32 merged
+   </notes>
+  </release>
+  <release>
+   <date>2017-02-20</date>
+   <time>06:23:34</time>
+   <version>
+    <release>5.0.10</release>
+    <api>5.0.10</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.33 merged
+   </notes>
+  </release>
+  <release>
+   <date>2017-02-28</date>
+   <time>07:07:02</time>
+   <version>
+    <release>5.0.11</release>
+    <api>5.0.11</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.34 merged
+   </notes>
+  </release>
+  <release>
+   <date>2017-03-23</date>
+   <time>07:07:02</time>
+   <version>
+    <release>5.0.12</release>
+    <api>5.0.12</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+	 <notes>
+all sql statements can be logged to a file
+do not sort some temporary tables anymore, because it causes an error in mysql if            sql_mode=only_full_group_by is set
+   </notes>
+  </release>
+  <release>
+   <date>2017-07-13</date>
+   <time>07:07:02</time>
+   <version>
+    <release>5.0.13</release>
+    <api>5.0.13</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 4.3.36 merged
+   </notes>
+  </release>
+  <release>
+   <date>2017-02-20</date>
+   <time>07:07:02</time>
+   <version>
+    <release>5.1.0</release>
+    <api>5.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- added postgres support
+   </notes>
+  </release>
+  <release>
+   <date>2017-02-20</date>
+   <time>07:07:02</time>
+   <version>
+    <release>5.1.1</release>
+    <api>5.1.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- all changes from 5.0.11 merged
+   </notes>
+  </release>
+  <release>
+   <date>2017-03-23</date>
+   <time>06:34:50</time>
+   <version>
+    <release>5.1.2</release>
+    <api>5.1.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+LetoDMS_Core_DMS::filterDocumentFiles() returns also documents which are not public
+if the owner tries to access them
+Check return value of onPreRemove[Document|Folder], return from calling method if bool
+Add LetoDMS_Core_DMS::getDocumentList()
+Limit number of duplicate files to 1000
+Add hook on(Pre|Post)RemoveContent
+Add hook onAttributeValidate
+   </notes>
+  </release>
+  <release>
+   <date>2017-08-23</date>
+   <time>06:34:50</time>
+   <version>
+    <release>5.1.3</release>
+    <api>5.1.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- LetoDMS_Core_Document::getNotifyList() and LetoDMS_Core_Folder::getNotifyList()
+returns just users which are not disabled
+- add new methods removeFromProcesses(), getWorkflowsInvolved(), getKeywordCategories() to LetoDMS_Core_User
+- add methods isMandatoryReviewerOf() and isMandatoryApproverOf()
+- add methods transferDocumentsFolders() and transferEvents()
+- add method LetoDMS_Core_DMS::getDocumentByOriginalFilename()
+   </notes>
+  </release>
+  <release>
+   <date>2017-09-05</date>
+   <time>09:19:24</time>
+   <version>
+    <release>5.1.4</release>
+    <api>5.1.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- add virtual access mode for document links and attachments plus callbacks to
+  check access mode in a hook
+- add new method LetoDMS_Core_DMS::getDocumentsExpired()
+- all changes from 5.0.14 merged
+   </notes>
+  </release>
+  <release>
+   <date>2017-11-07</date>
+   <time>09:19:24</time>
+   <version>
+    <release>5.1.5</release>
+    <api>5.1.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+- use views instead of temp. tables
+- add list of expired documents in LetoDMS_Core_DMS::getDocumentList()
+- add methods to set comment, name, public, version of document files
+- add method LetoDMS_Core_Document::transferToUser()
+- LetoDMS_Core_Document::addDocumentFile() returns object of file
+- add LetoDMS_Core_DocumentFile::setDate()
+- remove LetoDMS_Core_DocumentCategory::addCategory() and getCategories()
+- add optional parameters $limit and $offset to LetoDMS_Core_Folder::getDocuments()
+  and LetoDMS_Core_Folder::getSubFolders()
+- getInstance() returns now null instead of false if the object was not found in the db
+- add new methods LetoDMS_Core_Document::addCategories() and
+  LetoDMS_Core_Document::removeCategories()
+   </notes>
+  </release>
+  <release>
+   <date>2018-02-14</date>
+   <time>09:19:24</time>
+   <version>
+    <release>5.1.6</release>
+    <api>5.1.6</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+add LetoDMS_Core_Folder::getDocumentsMinMax()
+add lots of DocBlocks from merge request #8
+add LetoDMS_Core_AttributeDefinition::removeValue()
+   </notes>
+  </release>
+  <release>
+   <date>2018-04-05</date>
+   <time>09:19:24</time>
+   <version>
+    <release>5.1.7</release>
+    <api>5.1.7</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+just bump version
+   </notes>
+  </release>
+  <release>
+   <date>2018-07-02</date>
+   <time>09:19:24</time>
+   <version>
+    <release>5.1.8</release>
+    <api>5.1.8</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://opensource.org/licenses/gpl-license">GPL License</license>
+   <notes>
+LetoDMS_Core_DMS::search() returns false in case of an error
+do not use views in DBAccessPDO by default anymore, use temp. tables
+LetoDMS_Core_Document::getNotifyList() has new parameter to include disabled user in list
+fix possible sql injection in LetoDMS_Core_User
+   </notes>
+  </release>
+ </changelog>
+</package>
